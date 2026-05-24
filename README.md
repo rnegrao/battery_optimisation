@@ -14,8 +14,8 @@ solver = "CBC"
 
 ### 3. Output 
 
-a. battery_logs.csv: Output file with collums containing the battery charging and discharging information for each half-hourly 
+a) battery_logs.csv: Output file with collums containing the battery charging and discharging information for each half-hourly 
 
 
-b. annual_profit_breakdown.csv: Output file with the total annual profit
+b) annual_profit_breakdown.csv: Output file with the total annual profit over the time period
  
