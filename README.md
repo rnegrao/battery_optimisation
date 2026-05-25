@@ -47,4 +47,8 @@ b) annual_profit_breakdown.csv: Output file with the total annual profit over th
  Profit minus capex and operational costs: 
   Investment returns (2018-2020): £75,704.44
 --------------------------------------------------
-´´´
+
+
+### 5. Note on AI use
+
+I used Claude Sonnet 4.6 as an assistant to identify a suitable Python library for the optimization problem and to help me define the data structure required for integration with the optimization model. It helped accelerate the code implementation of the data ingestion workflow.
