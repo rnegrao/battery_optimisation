@@ -21,7 +21,8 @@ b) annual_profit_breakdown.csv: Output file with the total annual profit over th
 
 
 ### 4. Program output
-````
+
+```
  
   Optimising... (solver=CBC, limit=300s)
   Solver status: Optimal
@@ -47,7 +48,7 @@ b) annual_profit_breakdown.csv: Output file with the total annual profit over th
  Profit minus capex and operational costs: 
   Investment returns (2018-2020): £75,704.44
 --------------------------------------------------
-
+´´´
 
 ### 5. Note on AI use
 
