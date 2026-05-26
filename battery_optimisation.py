@@ -85,10 +85,7 @@ def optimization_model(df: pd.DataFrame,
     '''Data ingestion'''
     df = df.copy().sort_values("DATE").reset_index(drop=True)
     df["day"] = pd.to_datetime(df["DATE"]).dt.normalize()
-    price1 = df["Market 1 Price [£/MWh]"].values
-    price2 = df["Market 2 Price [£/MWh]"].values
-    price3 = df["Market 3 Price [£/MWh]"].values
-
+    
     '''Define half-hourly and daily time slots lists'''
     T = len(df)
     slots = list(range(T))
@@ -102,7 +99,12 @@ def optimization_model(df: pd.DataFrame,
     day_slots: dict[int, list[int]] = {i: [] for i in range(D)}
     for t, row in df.iterrows():
         day_slots[date_to_day[row["day"]]].append(t)
-            
+
+    price1 = df["Market 1 Price [£/MWh]"].values
+    price2 = df["Market 2 Price [£/MWh]"].values
+    ''' Market 3 daily price (take first value of each day)'''
+    price3 = np.array([df.loc[df["day"] == d, "Market 3 Price [£/MWh]"].iloc[0] for d in dates])
+
     '''Create the model: Judging the input prices the power is defined to give maximum gains'''
     model = pulp.LpProblem("BatteryOptimisation", pulp.LpMaximize)
     p1_c = pulp.LpVariable.dicts("p1_charge",    slots, lowBound=0)
